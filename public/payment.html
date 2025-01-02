@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Choose Your Plan</h1>
+    </header>
+    <main class="container text-center my-5">
+        <form action="/process-payment" method="POST">
+            <label for="plan">Select Plan:</label>
+            <select id="plan" name="plan" required>
+                <option value="Basic">Basic ($10)</option>
+                <option value="Pro">Pro ($50)</option>
+                <option value="Enterprise">Enterprise ($100)</option>
+            </select>
+            <button type="submit" class="btn btn-primary mt-3">Proceed to Payment</button>
+        </form>
+    </main>
+</body>
+</html>

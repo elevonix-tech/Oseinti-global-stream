@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Sharing | Oseinti Global Stream</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #1e1e2f;
+            color: white;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            background-color: #f5f5f5;
+        }
+        #upload-section {
+            border: 2px dashed #1e90ff;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        #upload-section:hover {
+            background-color: #f0f8ff;
+        }
+        #gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        #gallery video {
+            width: 100%;
+            border-radius: 8px;
+            background: black;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1e1e2f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Oseinti Video Sharing</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="live-stream.html">Live Streaming</a>
+        </nav>
+    </header>
+    <main>
+        <section id="upload-section">
+            <h2>Upload Your Video</h2>
+            <p>Drag and drop your video file here or click to upload.</p>
+            <input type="file" id="video-upload" accept="video/*" style="display: none;">
+            <button onclick="document.getElementById('video-upload').click()">Upload Video</button>
+        </section>
+        <section id="gallery">
+            <video controls>
+                <source src="sample1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls>
+                <source src="sample2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls>
+                <source src="sample3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Oseinti Global Stream. All Rights Reserved.
+    </footer>
+    <script>
+        const uploadInput = document.getElementById('video-upload');
+        const gallery = document.getElementById('gallery');
+
+        uploadInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                const videoElement = document.createElement('video');
+                videoElement.controls = true;
+                videoElement.src = url;
+                gallery.appendChild(videoElement);
+            }
+        });
+    </script>
+</body>
+</html>

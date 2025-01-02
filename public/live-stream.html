@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream | Oseinti Global Stream</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #1e1e2f;
+            color: white;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+        main {
+            display: flex;
+            flex: 1;
+            background-color: #f5f5f5;
+        }
+        #video-grid {
+            display: grid;
+            flex: 3;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 10px;
+            background: #111;
+        }
+        #video-grid video {
+            width: 100%;
+            border-radius: 8px;
+            background: black;
+        }
+        #chat-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #252540;
+            color: white;
+            padding: 1rem;
+        }
+        #chat-panel h3 {
+            margin: 0 0 1rem;
+        }
+        #messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #444;
+            background: #333;
+        }
+        #chat-input {
+            display: flex;
+        }
+        #chat-input input {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        #chat-input button {
+            padding: 0.5rem 1rem;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        .controls {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+        .controls button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 50%;
+            background-color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Oseinti Global Stream</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="video-sharing.html">Video Sharing</a>
+        </nav>
+    </header>
+    <main>
+        <div id="video-grid">
+            <video autoplay muted></video>
+            <video autoplay muted></video>
+            <video autoplay muted></video>
+        </div>
+        <div id="chat-panel">
+            <h3>Chat</h3>
+            <div id="messages"></div>
+            <div id="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+        </div>
+    </main>
+    <div class="controls">
+        <button>🎤</button>
+        <button>📷</button>
+        <button>🖥</button>
+        <button>✋</button>
+    </div>
+    <script>
+        // Placeholder script for basic interaction
+        document.querySelector("#chat-input button").addEventListener("click", () => {
+            const input = document.querySelector("#chat-input input");
+            const message = input.value;
+            if (message.trim()) {
+                const msgContainer = document.createElement("div");
+                msgContainer.textContent = message;
+                document.querySelector("#messages").appendChild(msgContainer);
+                input.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
